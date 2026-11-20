@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #F3EDE0; }
+body { @apply font-body text-ink antialiased; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* soft drifting colour behind the ring */
+.blob { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .75; animation: drift 22s ease-in-out infinite alternate; }
+.b1 { width: 60vmax; height: 60vmax; left: -15vmax; top: -10vmax; background: radial-gradient(#F6C79B, transparent 65%); }
+.b2 { width: 55vmax; height: 55vmax; right: -18vmax; top: 10vmax; background: radial-gradient(#C8D6B4, transparent 65%); animation-delay: -8s; }
+.b3 { width: 50vmax; height: 50vmax; left: 20vmax; bottom: -25vmax; background: radial-gradient(#F2BFC0, transparent 65%); animation-delay: -14s; }
+@keyframes drift { to { transform: translate3d(6vmax, 4vmax, 0) scale(1.12); } }
+@keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+.sheet { animation: rise .5s cubic-bezier(.2,.8,.2,1); }
+@media (prefers-reduced-motion: reduce) { .blob, .sheet { animation: none; } }
